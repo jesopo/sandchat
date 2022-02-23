@@ -5,15 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import chat.libera.sandchat.Conversation
 import chat.libera.sandchat.EventEmitter
 import chat.libera.sandchat.R
-import chat.libera.sandchat.irc.Conversation
-import chat.libera.sandchat.irc.Message
 import chat.libera.sandchat.observable.ObservableChangeType
 import chat.libera.sandchat.observable.ObservableLinkedHashMap
 
 class ConversationViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-    var click: (() -> Int)? = null;
+    var click: (() -> Int)? = null
 }
 class ConversationsRecyclerAdapter(private val items: ObservableLinkedHashMap<String, Conversation>) : RecyclerView.Adapter<ConversationViewHolder>() {
     val selected = EventEmitter<Int>()

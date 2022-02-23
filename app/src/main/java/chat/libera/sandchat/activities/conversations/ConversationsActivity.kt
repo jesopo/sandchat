@@ -1,18 +1,16 @@
 package chat.libera.sandchat.activities.conversations
 
 import android.content.Intent
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
+import chat.libera.sandchat.Conversation
 import chat.libera.sandchat.R
 import chat.libera.sandchat.activities.conversation.ConversationActivity
-import chat.libera.sandchat.irc.Conversation
-import chat.libera.sandchat.irc.Space
 import chat.libera.sandchat.observable.ObservableLinkedHashMap
 
 class ConversationsActivity : AppCompatActivity() {
@@ -20,14 +18,14 @@ class ConversationsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversations)
 
-        var toolbar = this.findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = this.findViewById<Toolbar>(R.id.toolbar)
         this.setSupportActionBar(toolbar)
 
-        var actionBar = this.supportActionBar!!
+        val actionBar = this.supportActionBar!!
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        var drawer = this.findViewById<DrawerLayout>(R.id.drawer)
-        var toggle =
+        val drawer = this.findViewById<DrawerLayout>(R.id.drawer)
+        val toggle =
             ActionBarDrawerToggle(this, drawer, toolbar, R.string.show_spaces, R.string.hide_spaces)
         drawer.addDrawerListener(toggle)
         toggle.syncState()
