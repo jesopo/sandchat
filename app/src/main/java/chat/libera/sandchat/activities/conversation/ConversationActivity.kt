@@ -8,9 +8,11 @@ import android.widget.EditText
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import chat.libera.sandchat.Message
+import chat.libera.sandchat.MessageType
 import chat.libera.sandchat.R
+import chat.libera.sandchat.Sender
 import chat.libera.sandchat.activities.main.fragments.conversation.ConversationRecyclerAdapter
-import chat.libera.sandchat.irc.*
 import chat.libera.sandchat.observable.ObservableLinkedHashMap
 import java.util.*
 
@@ -26,7 +28,7 @@ class ConversationActivity : AppCompatActivity() {
         val actionBar = this.supportActionBar!!
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        val messages = ObservableLinkedHashMap<String, Message>();
+        val messages = ObservableLinkedHashMap<String, Message>()
         val recycler = this.findViewById<RecyclerView>(R.id.messages)
         recycler.adapter = ConversationRecyclerAdapter(messages).apply {
             setHasStableIds(false)
